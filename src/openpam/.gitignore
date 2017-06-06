@@ -1,0 +1,15 @@
+Makefile
+.deps
+.libs
+*.o
+*.la
+*.lo
+bin/openpam_dump_policy/openpam_dump_policy
+config.h
+config.log
+config.status
+libtool
+misc/coverage.sh
+misc/coverity.sh
+mkpkgng
+stamp-h1

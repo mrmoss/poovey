@@ -11,12 +11,16 @@
 
 #include <errno.h>
 #include <limits.h>
-#include <shadow.h>
+#if defined(__FreeBSD__)
+	#include <xorg/shadow.h>
+#else
+	#include <shadow.h>
+#endif
 #include <stdio.h>
 #include <stdlib.h>
 
 static int intlen(int number)
-{ 
+{
     int len = 2;
     while (number != 0) {
         number /= 10;
@@ -103,7 +107,7 @@ pam_modutil_getspnam(pam_handle_t *pamh, const char *user)
                 /* no sense in repeating the call */
                 break;
         }
-	
+
 	length <<= PWD_LENGTH_SHIFT;
 
     } while (length < PWD_ABSURD_PWD_LENGTH);
@@ -120,7 +124,7 @@ pam_modutil_getspnam(pam_handle_t *pamh, const char *user)
      * Sorry, there does not appear to be a reentrant version of
      * getspnam(). So, we use the standard libc function.
      */
-    
+
     return getspnam(user);
 
 #endif /* def HAVE_GETSPNAM_R */

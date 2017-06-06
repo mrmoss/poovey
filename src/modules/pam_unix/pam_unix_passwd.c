@@ -48,7 +48,11 @@
 #include <sys/types.h>
 #include <pwd.h>
 #include <syslog.h>
-#include <shadow.h>
+#if defined(__FreeBSD__)
+	#include <xorg/shadow.h>
+#else
+	#include <shadow.h>
+#endif
 #include <time.h>		/* for time() */
 #include <fcntl.h>
 #include <ctype.h>

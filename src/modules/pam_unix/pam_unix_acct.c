@@ -43,7 +43,11 @@
 #include <sys/types.h>
 #include <syslog.h>
 #include <pwd.h>
-#include <shadow.h>
+#if defined(__FreeBSD__)
+	#include <xorg/shadow.h>
+#else
+	#include <shadow.h>
+#endif
 #include <time.h>		/* for time() */
 #include <errno.h>
 #include <sys/wait.h>

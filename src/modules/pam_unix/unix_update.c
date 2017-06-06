@@ -23,7 +23,11 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <pwd.h>
-#include <shadow.h>
+#if defined(__FreeBSD__)
+	#include <xorg/shadow.h>
+#else
+	#include <shadow.h>
+#endif
 #include <signal.h>
 #include <time.h>
 #include <sys/time.h>

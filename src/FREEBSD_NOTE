@@ -1,0 +1,19 @@
+If when running make you see:
+
+	CDPATH="${ZSH_VERSION+.}:" && cd . && /bin/sh /root/poovey/src/openpam/missing aclocal-1.15 -I m4
+	/root/poovey/src/openpam/missing: aclocal-1.15: not found
+	WARNING: 'aclocal-1.15' is missing on your system.
+	         You should only need it if you modified 'acinclude.m4' or
+	         'configure.ac' or m4 files included by 'configure.ac'.
+	         The 'aclocal' program is part of the GNU Automake package:
+	         <http://www.gnu.org/software/automake>
+	         It also requires GNU Autoconf, GNU m4 and Perl in order to run:
+	         <http://www.gnu.org/software/autoconf>
+	         <http://www.gnu.org/software/m4/>
+	         <http://www.perl.org/>
+	Makefile:380: recipe for target 'aclocal.m4' failed
+	make: *** [aclocal.m4] Error 127
+
+In the openpam directory run:
+
+	touch *
